@@ -2,6 +2,7 @@
 
 import PropertyDetails from "@/components/PropertyDetails";
 import PropertyHeaderImage from "@/components/PropertyHeaderImage";
+import Spinner from "@/components/Spinner";
 import { fetchProperty } from "@/utils/requests";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -42,6 +43,7 @@ const PropertyPage = () => {
 
   return (
     <>
+      {loading && <Spinner loading={loading} />}
       {!loading && property && (
         <>
           <PropertyHeaderImage image={property.images[0]} />
